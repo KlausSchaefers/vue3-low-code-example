@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <QUX :app="design" :config="config" v-model="viewModel" ref="qux"/>
+    <Figma :figma="figmaConfig" :config="config" v-model="viewModel"/>
   </div>
 </template>
 
@@ -8,10 +8,13 @@
 // @ is an alias to /src
 
 export default {
-  name: 'Home',
+  name: 'FigmaExample',
   data: function() {
     return {
-      design: 'a2aa10aAzTPNq2B5yaDMREzIx9s5eeyyFsSqln5vtTft5dGoqy7wYJx9rJYO',
+      figmaConfig: {
+        figmaFile: "",
+        figmaAccessKey: "",
+      },
       showViewModel: true,
       viewModel: {
           stringValue: 'klaus was here',
@@ -22,7 +25,7 @@ export default {
         },
         router: {
           key: 'screenName',
-          prefix: ''
+          prefix: '/figma/'
         }
       }
     }
